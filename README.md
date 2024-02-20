@@ -33,14 +33,13 @@ The project structure and intention are as follows :
 Adversarial active learning			# Source code		
     ├── seed.py			 	                                          # Set up random seed
     ├── query_strategies		                                    # All query_strategies
-    │   ├── cdal_sampling.py                      # Integrating Bayesian methods with high density and diversity selection
-    │   ├── cluster_margin_sampling.py                           # selects a
-diverse set of examples on which the model is least confident
+    │   ├── cdal_sampling.py                                    # Integrating Bayesian methods with high density and diversity selection
+    │   ├── cluster_margin_sampling.py                          # selects a diverse set of examples on which the model is least confident
     │   ├── bayesian_active_learning_disagreement_dropout.py	  # Deep bayesian query method
     │   ├── entropy_sampling.py		                              # Entropy based query method
-    │   ├── kcenter_greedy.py	                              # samples have the smallest maximum distance to the labeled sample set, as a traditional diversity-based method
-    │   ├── least_confidence.py                             # selecting samples with the lowest confidence
-    │   ├── margin_sampling.py                           # samples that are close to the decision boundary
+    │   ├── kcenter_greedy.py	                                  # samples have the smallest maximum distance to the labeled sample set, as a traditional diversity-based method
+    │   ├── least_confidence.py                                 # selecting samples with the lowest confidence
+    │   ├── margin_sampling.py                                  # samples that are close to the decision boundary
     │   ├── entropy_sampling_dropout.py		                      # Entropy-based MC dropout query method
     │   ├── random_sampling.py		                              # Random selection
     │   ├── strategy.py                                         # Functions needed for query strategies
@@ -54,34 +53,27 @@ diverse set of examples on which the model is least confident
 ### 2) Datasets preparation 
 1. Download the datasets from the official address:
    
-   Messidor: https://www.adcis.net/en/third-party/messidor/
+   BraTS 2019 Dataset: [https://www.adcis.net/en/third-party/messidor/](https://www.med.upenn.edu/cbica/brats2019/data.html)
    
-   Breast Cancer Diagnosis: https://iciar2018-challenge.grand-challenge.org/
+   DermaMNIST: [https://iciar2018-challenge.grand-challenge.org/](https://medmnist.com/)
 
-
-<!--    BreakHis: https://web.inf.ufpr.br/vri/databases/breast-cancer-histopathological-database-breakhis/ -->
-   
-2. Modify the data folder path for specific dataset in `data.py`
+2. Modify the data folder path for the specific datasets in `data.py`
 
 ### 3) Run Active learning process 
 Please confirm the configuration information in the [`utils.py`]
 ```
   python main.py \
       --n_round 34 \
-      --n_query 20 \
+      --n_query 100 \
       --n_init_labeled 100 \
       --dataset_name Messidor \
-      --traning_method supervised_train_acc \
-      --strategy_name RandomSampling \
-      --seed 2022
+      --traning_method supervised_val_loss \
+      --strategy_name EntropySampling \
+      --seed 42
 ```
 The training results will be saved to the corresponding directory(save name) in `performance.csv`.  
 You can also run `supervised_baseline.py` by
 ```
 python supervised_baseline.py
 ```
-
-## Visualization
-1 Active learning performance visualization  
-After you got the `performance.csv`, you can run `visualization.py` to visualize the whole process
 
