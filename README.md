@@ -1,10 +1,11 @@
 ## Adaptive adversarial 
 ### Introduction
-This project is the code for paper Adaptive Adversarial samples based Active learning for medical image classification based on python and pytorch framework.
+This project is the code for the paper Adaptive Adversarial Samples based Active Learning for Medical Image Classification 
+The implementation is based on Python and Pytorch framework.
   
 
 ### Requirements  
-The main package and version of the python environment are as follows
+The main package and version of the Python environment are as follows
 ```
 # Name                    Version         
 python                    3.8.5                    
@@ -20,23 +21,27 @@ scikit-learn              0.23.2
 tqdm                      4.50.2             
 ```  
 
-The above environment is successful when running the code of the project. Pytorch has very good compatibility. Thus, I suggest that try to use the existing pytorch environment firstly.
+The above environment is successful when running the code of the project. Pytorch has very good compatibility. Thus, I suggest that try to use the existing pytorch environment first.
 
 ---  
 ## Usage 
 ### 1) Download Project 
 
-Running```git clone https://github.com/activelearning2022/adversarial_active_learning.git```  
+Running```git clone https://github.com/HelenMa9998/Easy_hard_AL```  
 The project structure and intention are as follows : 
 ```
 Adversarial active learning			# Source code		
     ├── seed.py			 	                                          # Set up random seed
     ├── query_strategies		                                    # All query_strategies
-    │   ├── adaptive_adversarial_sample.py                      # Our method
-    │   ├── adversarial_deepfool.py                             # The method we based on
+    │   ├── cdal_sampling.py                      # Integrating Bayesian methods with high density and diversity selection
+    │   ├── cluster_margin_sampling.py                           # selects a
+diverse set of examples on which the model is least confident
     │   ├── bayesian_active_learning_disagreement_dropout.py	  # Deep bayesian query method
     │   ├── entropy_sampling.py		                              # Entropy based query method
-    │   ├── entropy_sampling_dropout.py		                      # Entropy based MC dropout query method
+    │   ├── kcenter_greedy.py	                              # samples have the smallest maximum distance to the labeled sample set, as a traditional diversity-based method
+    │   ├── least_confidence.py                             # selecting samples with the lowest confidence
+    │   ├── margin_sampling.py                           # samples that are close to the decision boundary
+    │   ├── entropy_sampling_dropout.py		                      # Entropy-based MC dropout query method
     │   ├── random_sampling.py		                              # Random selection
     │   ├── strategy.py                                         # Functions needed for query strategies
     ├── data.py	                                                # Prepare the dataset & initialization and update for training dataset
