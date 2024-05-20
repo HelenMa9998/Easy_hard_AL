@@ -1,6 +1,6 @@
 ## Adaptive adversarial 
 ### Introduction
-This project is the code for the paper Adaptive Adversarial Samples based Active Learning for Medical Image Classification 
+This project is the code for the paper Adaptive Curriculum Query Strategy for Active Learning in Medical Image Classification
 The implementation is based on Python and Pytorch framework.
   
 
@@ -55,9 +55,9 @@ Adversarial active learning			# Source code
    
    BraTS 2019 Dataset: [https://www.adcis.net/en/third-party/messidor/](https://www.med.upenn.edu/cbica/brats2019/data.html)
    
-   DermaMNIST: [https://iciar2018-challenge.grand-challenge.org/](https://medmnist.com/)
+   BACH: https://iciar2018-challenge.grand-challenge.org/Dataset/
 
-2. Modify the data folder path for the specific datasets in `data.py`
+3. Modify the data folder path for the specific datasets in `data.py`
 
 ### 3) Run Active learning process 
 Please confirm the configuration information in the [`utils.py`]
