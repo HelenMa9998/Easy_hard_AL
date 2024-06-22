@@ -1,6 +1,6 @@
 ## Adaptive Curriculum Query Strategy
 ### Introduction
-This project is the code for the paper Adaptive Curriculum Query Strategy for Active Learning in Medical Image Classification
+This project is the code for the paper Adaptive Curriculum Query Strategy for Active Learning in Medical Image Classification published in MICCAI2024.
 The implementation is based on Python and Pytorch framework.
   
 
